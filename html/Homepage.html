@@ -1,0 +1,199 @@
+<!-- $Id:$ -->
+<html>
+<title>Twillo Widget</title>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="//media.twiliocdn.com/sdk/js/client/v1.3/twilio.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery-1.11.0.min.js"></script>	
+	<script type="text/javascript" src="../js/custom.js"></script>	
+	<script type="text/javascript" src="../js/ZohoEmbededAppSDK.min.js"></script>
+	
+	<link href="../css/style.css" type="text/css" rel="stylesheet" />
+</head>   
+<body>
+<script src="https://crmplugins.zoho.com/market/twilioClientAction.do?nameSpace=telephonyfortwilio" type="text/javascript"></script>
+
+<script>
+      
+	  
+/* Let us know when the client is ready. */
+      Twilio.Device.ready(function (device) { //No I18N
+      	console.log("Readyyyy"); //No I18N
+//         console.log("CLIENTTOKEN"+CLIENTTOKEN);
+      });
+      
+//       Incoming connection from +14083529191
+      Twilio.Device.connect(function (conn) { //No I18N
+      	console.log("Successfully established call"); //No I18N
+      });
+      
+//Disconnect and insert records in call module     
+      Twilio.Device.disconnect(function (conn) { //No I18N
+      	console.log("Call enddd"); //No I18N
+    	 console.log("Incoming connection came from " + conn.parameters.From); //No I18N
+      	ZOHO.CRM.UI.Dialer.minimize();//No I18N
+        $(".twilloWdgt").hide();
+        $("#keypadWdgt").show();      	
+        var currentDate = new Date();//No I18N
+  		  var currentTimeafter= currentDate.getTime();//No I18N
+  		  console.log("currentTimeafter disconnect in seconds ="+(currentTimeafter/1000).toFixed(2));//No I18N
+  		  var dialedTime=currentTimeafter-currentTime;//No I18N
+  		  console.log("Call Duration in seconds ="+dialedTime);//No I18N
+  		  var recordData = {//No I18N
+          "Subject": "Call From"+conn.parameters.From,//No I18N
+          "Call Duration": dialedTime//No I18N
+    }
+  ZOHO.CRM.API.insertRecord({Entity:"Calls",APIData:recordData}).then(function(data){//No I18N
+  	console.log("Added record");//No I18N
+  	console.log(data);//No I18N
+
+  	});
+        });
+      //Twilio.Device.connect().mute("false");
+/* Listen for incoming connections */
+         Twilio.Device.incoming(function (conn) { //No I18N
+//         	 conn = Twilio.Device.connect(params);
+          var phone_number=conn.parameters.From;
+      	  console.log("Incoming connection from " + conn.parameters.From); //No I18N
+          phone_number=phone_number.replace("+","");
+                    ZOHO.CRM.API.searchRecord({Entity:"Contacts",Type:"phone",Query:phone_number})
+          .then(function(data){
+                      if(data.data!=undefined){
+          $("#Phone").text(data.data[0].Phone);
+          $("#Email").text(data.data[0].Email);
+          $("#FullName").text(data.data[0].Full_Name);
+          $("#AcName").text(data.data[0].Account_Name.name);
+          console.log(data.data[0].Account_Name.name);}
+          else{
+            console.log("No Content");
+          }
+})
+          //add user details
+          var jsonStr=JSON.stringify(USEROBJECT);
+          var jsonArr=JSON.parse(jsonStr);
+    	  for(var j in jsonArr)
+    	      {
+    			$("#"+j).text(jsonArr[j]);
+    	      }
+    		$("#fullName").text(fullName);
+          /* Report any errors on the screen */
+          Twilio.Device.error(function (error) { //No I18N
+          	console.log("Error"); //No I18N
+          });
+          
+              twillo.showtwilloWdgt('Call From '+conn.parameters.From); //No I18N
+          // accept the incoming connection and start two-way audio
+          alert("Answering the call Number --> "+ conn.parameters.From);
+          conn.accept(conn.parameters.From); //No I18N
+          connection=conn;
+          console.log("connection object=="+connection);
+        });
+
+//Manual call
+  function call() {
+	  var dialedPhoneNumber=$("#dialNumber").val();
+/* 	  console.log("search contact phone recored for dialedPhoneNumber="+ dialedPhoneNumber);
+	  ZOHO.CRM.API.searchRecord({Entity:"Contacts",Type:"phone",Query:dialedPhoneNumber})
+	  .then(function(data){
+	      console.log(data)
+	      
+	  }) */
+      	console.log("call function triggered for this phone number :::::"+dialedPhoneNumber+"and inboundnumber="+PHONENUMBER); //No I18N
+      	connection = Twilio.Device.connect({
+      		From: PHONENUMBER,
+      		phone_number: dialedPhoneNumber
+      	});
+      	twillo.showtwilloWdgt('Calling From '+dialedPhoneNumber);
+        dialedPhoneNumber=dialedPhoneNumber.replace("+","");
+        ZOHO.CRM.API.searchRecord({Entity:"Contacts",Type:"phone",Query:dialedPhoneNumber})
+          .then(function(data){
+            if(data.data!=undefined){
+          $("#Phone").text(data.data[0].Phone);
+          $("#Email").text(data.data[0].Email);
+          $("#FullName").text(data.data[0].Full_Name);
+          $("#AcName").text(data.data[0].Account_Name.name);
+          console.log(data.data[0].Account_Name.name);}
+          else{
+            console.log("No Content");
+          }
+})
+      } 
+  
+//Initiating setup  
+      $(document).ready(function(){
+    	  init();
+    	  ZOHO.embeddedApp.init()
+          .then(function(){
+                  return ZOHO.CRM.CONFIG.getCurrentUser()
+          })
+          .then(function(data){
+              console.log(data);
+          })
+      });
+</script>
+      
+      
+<div id="twilioContent">
+	<div class="twilloWdgt" style="display:none;">
+		<div class="headTitle">
+			<i class="callingIcon fL"></i>
+			<label class="fL callfrom" id="getuserFrom"></label>
+			<label class="durationTime fR">00:10</label>
+		</div>
+		<div class="optionsTab">
+			<ul>
+				<li><div class="keypadwdgt"><a class="callingIcon keypadicon" href="javascript:;" onclick="twillo.showKeyPad();">keypadTab</a><p class="aclr">Keypad</p></div></li>
+				<li><a class="callingIcon muteIcon" href="javascript:;" onclick="twillo.clientMuteCall()">MuteTab</a><p class="aclr">Mute</p></li>
+			</ul>
+		</div>
+		<div class="userInfo p20">
+			<div class="profileImg fL"><img src="../images/profile.jpeg"></div>
+			<div class="profileInfo fL mL10">
+				<ul>
+<!-- 					<li class="aclr"><p class="mB5">basha karthick</p><p>karthick pvt ltd</p></li> -->
+					<li class="aclr"><p class="mB5"><span id="fullName"></span></p></li>
+
+					<li><span class="profileLabel">Email : </span><span id="Email"></span></li>
+					<li><span class="profileLabel">Phone: </span><span id="Phone"></span></li>
+					<li><span class="profileLabel">FullName : </span><span id="FullName"></span></li>
+					<li><span class="profileLabel">Account Name : </span><span id="AcName"></span></li>
+					<li>
+						<textarea rows="3" cols="30" class="inputBox mT10 f14" placeholder="Call Note"></textarea>
+					</li>					
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="bottomBtn">
+			<input type="button" class="redbtn" value="End Call" onclick="twillo.endCall(this)"/>
+		</div>
+	</div>
+	<div id="keypadWdgt">
+          <div class="dialpad compact">			
+              <div class="call-info">
+                    <input class="number" id="dialNumber" value="">
+              </div>
+              <div class="dials">
+                  <ol>
+                      <li class="digits" onclick="twillo.enterNumber(this)"><p><label>1</label></p></li>
+                      <li class="digits centerWdgt" onclick="twillo.enterNumber(this)"><label>2</label><p>abc</p></li>
+                      <li class="digits" onclick="twillo.enterNumber(this)"><label>3</label><p>def</p></li>
+                      <li class="digits" onclick="twillo.enterNumber(this)"><label>4</label><p>ghi</p></li>
+                      <li class="digits centerWdgt" onclick="twillo.enterNumber(this)"><label>5</label><p>jkl</p></li>
+                      <li class="digits" onclick="twillo.enterNumber(this)"><label>6</label><p>mno</p></li>
+                      <li class="digits" onclick="twillo.enterNumber(this)"><label>7</label><p>pqrs</p></li>
+                      <li class="digits centerWdgt" onclick="twillo.enterNumber(this)"><label>8</label><p>tuv</p></li>
+                      <li class="digits" onclick="twillo.enterNumber(this)"><label>9</label><p>wxyz</p></li>
+                      <li class="digits" onclick="twillo.enterNumber(this)"><label class="starLabel">*</label></li>
+                      <li class="digits centerWdgt" onclick="twillo.enterNumber(this)"><label>0</label><p>+</p></li>
+                      <li class="digits" onclick="twillo.enterNumber(this)"><label class="hashLabel">#</label></li>
+                      <li class="fL" onclick="twillo.enterNumber(this)"><p class="btnAlign"><label class="actionTxt">Clear</label></p></li>
+                      <li class="fL pad-action" onclick="call();"><p class="btnAlign"><label class="actionTxt grnBtn">Call</label></p></li>
+                      <li class="fL" onclick="twillo.enterNumber(this)"><p class="btnAlign"><label class="actionTxt">Delete</label></p></li> 
+                  </ol>
+              </div>
+          </div>
+      </div>
+      </div>
+</body>
+</html>    

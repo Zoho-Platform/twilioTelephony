@@ -1,0 +1,444 @@
+/* PROXIMA NOVA FONT WEIGHT LIST */
+/*~~~~~~~~~~ REGULAR ~~~~~~~~~~*/
+@font-face {
+    font-family:"proxima_nova_rgregular";
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_regular_macroman/ProximaNova-Reg-webfont.eot");
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_regular_macroman/ProximaNova-Reg-webfont.eot?#iefix") format("embedded-opentype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_regular_macroman/ProximaNova-Reg-webfont.woff") format("woff"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_regular_macroman/ProximaNova-Reg-webfont.ttf") format("truetype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_regular_macroman/ProximaNova-Reg-webfont.svg#proxima_nova_rgregular") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+/*~~~~~~~~~~ LIGHT ~~~~~~~~~~*/
+@font-face { 
+    font-family:"proxima_novalight";
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_light_macroman/ProximaNova-Light-webfont.eot");
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_light_macroman/ProximaNova-Light-webfont.eot?#iefix") format("embedded-opentype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_light_macroman/ProximaNova-Light-webfont.woff") format("woff"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_light_macroman/ProximaNova-Light-webfont.ttf") format("truetype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_light_macroman/ProximaNova-Light-webfont.svg#proxima_novalight") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+/*~~~~~~~~~~ SEMIBOLD ~~~~~~~~~~*/
+@font-face {
+    font-family:"proxima_novasemibold";
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_semibold_macroman/ProximaNova-Sbold-webfont.eot");
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_semibold_macroman/ProximaNova-Sbold-webfont.eot?#iefix") format("embedded-opentype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_semibold_macroman/ProximaNova-Sbold-webfont.woff") format("woff"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_semibold_macroman/ProximaNova-Sbold-webfont.ttf") format("truetype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_semibold_macroman/ProximaNova-Sbold-webfont.svg#proxima_novasemibold") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+/*~~~~~~~~~~ BOLD ~~~~~~~~~~*/
+@font-face {
+    font-family: 'proxima_nova_rgbold';
+    src: url('https://fonts.zohostatic.com/proximanova/proximanova_bold_macroman/ProximaNova-Bold-webfont.eot');
+    src: url('https://fonts.zohostatic.com/proximanova/proximanova_bold_macroman/ProximaNova-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://fonts.zohostatic.com/proximanova/proximanova_bold_macroman/ProximaNova-Bold-webfont.woff') format('woff'),
+         url('https://fonts.zohostatic.com/proximanova/proximanova_bold_macroman/ProximaNova-Bold-webfont.ttf') format('truetype'),
+         url('https://fonts.zohostatic.com/proximanova/proximanova_bold_macroman/ProximaNova-Bold-webfont.svg#proxima_nova_rgbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    color: #444;
+    font-family: "proxima_nova_rgregular";
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+p,
+ol,
+ul,
+li{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    list-style-type:none;
+}
+.fL {
+	float:left;
+}
+.fR {
+	float:right;
+}
+.pR {
+	position:relative;
+}
+.p20{
+	padding:20px;
+}
+.pTB5 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.clear {
+	clear:both;
+}
+.mT10 {
+	margin-top:10px;
+}
+.mL10 {
+	margin-left:10px;
+}
+.mB5 {
+	margin-bottom:5px;
+}
+.f14 {
+	font-size:14px !important;
+}
+.w100per {
+	width:100%;
+}
+.clear {
+	clear:both;
+}
+.aclr {
+	color:#458ac5;
+}
+.inputBox {
+    padding: 10px;
+    border: 1px solid #ededed;
+    font-size: 15px;
+    width: 100%;
+    margin-bottom: 3px;
+    font-family: "proxima_novalight";
+}
+.headTitle {
+    padding: 10px;
+    background: #404040;
+    color: #fff;
+    width: 100%;
+    height: 35px;
+    box-sizing: border-box;
+}
+a.callingIcon {
+    width: 20px;
+    height: 20px;
+    background: url(../images/icon.png);
+}
+.optionsTab li {
+    width: 33.3%;
+    text-align: center;
+    float: left;
+}
+.profileImg img {
+    max-width: 30px;
+    max-height: 30px;
+}
+.bottomBtn {
+    text-align: center;
+    border-top: 1px solid #ededed;
+}
+a.callingIcon, i.callingIcon {
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/icon.png);
+    text-indent: -9999px;
+    display: block;
+    margin: auto; 
+    background-color: #333;
+    margin-top: 10px;
+    margin-bottom:5px;
+}
+i.callingIcon {
+    background-position: -5px -61px;
+    margin: 0;
+    background-color: transparent;
+    position: absolute;
+}
+a.keypadicon {
+	   background-position: -83px -8px;
+}
+a.muteIcon {
+	   background-position: -3px -9px;
+}
+a.holdIcon {
+	   background-position: -49px -9px;
+}
+.callfrom {
+	padding-left:32px;
+}
+.keypadwdgt {
+    width: 75px;
+}
+.optionsTab {
+    height: 60px;
+    background-color: #f7f7f7;
+    box-shadow: 0px 1px 3px #ccc;
+}
+.userInfo {
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+}
+span.profileLabel {
+    color: #999;
+    line-height: 25px;
+}
+input.redbtn {
+    background-color: #f24837;
+    border: 1px solid #ea3827;
+    padding: 8px 28px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 14px;
+    left: 0;
+    margin-top: 15px;
+}
+
+/****************Keypad Widget****************/
+.call-info {
+    padding: 0;
+    text-align: center;
+    width: 300px;
+    margin: 10px auto;
+    margin-top: 30px;
+}
+.centerWdgt {
+    margin: 0px 24px;
+}
+.dialpad .number {
+    position: relative;
+    z-index: 2;
+    color: #4d4d4d;
+    font-weight: 300;
+    font-size: 24px;
+    margin-top: 10px;
+    background: #fff;
+    min-height: 27px;
+    padding-left: 3px;
+    padding-top: 3px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.dialpad .dials {
+    width: 235px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.dialpad .dials .digits {
+    border: 1px solid #4c9ae2;
+    border-radius: 30px;
+    box-sizing: border-box;
+    float: left;
+    height: 60px;
+    padding: 10px;
+    width: 60px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.dials .digits p {
+    font-size: 14px;
+    position: relative;
+    top: -4px;
+}
+.dials label {
+    font-size: 22px;
+    font-family: "proxima_novalight";
+    color: #000;
+}
+.btnAlign {
+    padding-top: 7px;
+    padding-bottom: 10px;
+    margin-top: 14px;
+}
+.actionTxt {
+    font-size: 14px !important;
+    padding: 8px 12px;
+    border: 1px solid #c4c4c4;
+    background: #fff;
+    border-radius: 2px;
+    color: #000;
+}
+.grnBtn {
+    margin: 0 10px;
+    background: #19bc7d;
+    padding: 8px 24px;
+    border: solid 1px #19bc7d;
+    color: #fff !important;
+    border-bottom: 1px solid #148157;
+}
+
+
+/* PROXIMA NOVA FONT WEIGHT LIST */
+/*~~~~~~~~~~ REGULAR ~~~~~~~~~~*/
+@font-face {
+    font-family:"proxima_nova_rgregular";
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_regular_macroman/ProximaNova-Reg-webfont.eot");
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_regular_macroman/ProximaNova-Reg-webfont.eot?#iefix") format("embedded-opentype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_regular_macroman/ProximaNova-Reg-webfont.woff") format("woff"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_regular_macroman/ProximaNova-Reg-webfont.ttf") format("truetype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_regular_macroman/ProximaNova-Reg-webfont.svg#proxima_nova_rgregular") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+/*~~~~~~~~~~ LIGHT ~~~~~~~~~~*/
+@font-face { 
+    font-family:"proxima_novalight";
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_light_macroman/ProximaNova-Light-webfont.eot");
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_light_macroman/ProximaNova-Light-webfont.eot?#iefix") format("embedded-opentype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_light_macroman/ProximaNova-Light-webfont.woff") format("woff"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_light_macroman/ProximaNova-Light-webfont.ttf") format("truetype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_light_macroman/ProximaNova-Light-webfont.svg#proxima_novalight") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+/*~~~~~~~~~~ SEMIBOLD ~~~~~~~~~~*/
+@font-face {
+    font-family:"proxima_novasemibold";
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_semibold_macroman/ProximaNova-Sbold-webfont.eot");
+    src:url("https://fonts.zohostatic.com/proximanova/proximanova_semibold_macroman/ProximaNova-Sbold-webfont.eot?#iefix") format("embedded-opentype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_semibold_macroman/ProximaNova-Sbold-webfont.woff") format("woff"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_semibold_macroman/ProximaNova-Sbold-webfont.ttf") format("truetype"),
+        url("https://fonts.zohostatic.com/proximanova/proximanova_semibold_macroman/ProximaNova-Sbold-webfont.svg#proxima_novasemibold") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+/*~~~~~~~~~~ BOLD ~~~~~~~~~~*/
+@font-face {
+    font-family: 'proxima_nova_rgbold';
+    src: url('https://fonts.zohostatic.com/proximanova/proximanova_bold_macroman/ProximaNova-Bold-webfont.eot');
+    src: url('https://fonts.zohostatic.com/proximanova/proximanova_bold_macroman/ProximaNova-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://fonts.zohostatic.com/proximanova/proximanova_bold_macroman/ProximaNova-Bold-webfont.woff') format('woff'),
+         url('https://fonts.zohostatic.com/proximanova/proximanova_bold_macroman/ProximaNova-Bold-webfont.ttf') format('truetype'),
+         url('https://fonts.zohostatic.com/proximanova/proximanova_bold_macroman/ProximaNova-Bold-webfont.svg#proxima_nova_rgbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    color: #444;
+    font-family: "proxima_nova_rgregular";
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+p,
+ol,
+ul,
+li{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    list-style-type:none;
+}
+.fL {
+	float:left;
+}
+.fR {
+	float:right;
+}
+.p20{
+	padding:20px;
+}
+.clear {
+	clear:both;
+}
+.mT10 {
+	margin-top:10px;
+}
+.mT20 {
+    margin-top:20px;
+}
+.mL10 {
+	margin-left:10px;
+}
+.mB5 {
+	margin-bottom:5px;
+}
+.mR15 {
+    margin-right: 15px;
+}
+.mR30 {
+    margin-right: 30px;
+}
+.f14 {
+	font-size:14px !important;
+}
+.w100per {
+	width:100%;
+}
+.w250 {
+    width: 250px;
+}
+.clear {
+	clear:both;
+}
+.aclr {
+	color:#458ac5;
+}
+.inputBox {
+    padding: 10px;
+    border: 1px solid #ededed;
+    font-size: 15px;
+    width: 100%;
+    margin-bottom: 3px;
+    font-family: "proxima_novalight";
+}
+
+.headTtle {
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 100;
+}
+h5.subTtle {
+    font-size: 16px;
+    margin: 30px 0 15px;
+}
+.formGroup label {
+    line-height: 28px;
+}
+.verifilabel{
+    display: block;
+    float: left;
+    font-size: 14px;
+    color: #888;
+}
+input#welcomeMsg {
+    width: 400px;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+.formGroup textarea {
+    border: 1px solid #ddd;   
+}
+div#twilloUserForm {
+    width: 650px;
+    margin: 20px auto;
+    box-shadow: 0px 0px 4px #ccc;
+    border: 1px solid #ddd;
+}
+.userSelect select option {
+    padding: 3px 0;
+}
+.userSelect select {
+    width: 250px;
+    padding: 5px;
+    font-size: 13px;
+    height: 81px;
+    border: 1px solid #ddd;
+}
+.divider {
+    margin: 25px 0;
+    border-top: 1px solid #ededed;
+}
+span#Email {
+    width: 200px;
+    overflow: hidden;
+    display: inline;
+    text-overflow: ellipsis;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 5px;
+}
